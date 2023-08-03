@@ -6,6 +6,7 @@ import Landing from "./pages/Landing"
 import Dashboard from "./pages/Dashboard"
 import PrivateRoutes from "./Layout/PrivateRoutes"
 import Customers from "./pages/Customers"
+import Transactions from "./pages/Transactions"
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
               <Route path="/" element={<Dashboard />}>
                 <Route path="dashboard" element={<h1>Dashboard</h1>} />
                 <Route path="customers" element={<Customers />} />
-                <Route path="products" element={<h1>Products</h1>} />
+                <Route path="transactions" element={<Transactions />} />
               </Route>
             </Route>
             <Route path="*" element={<h1>Not Found</h1>} />

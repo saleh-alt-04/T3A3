@@ -18,7 +18,7 @@ const Dashboard = () => {
       <div className="col-span-1  bg-gray-200 md:flex flex-col justify-between h-full">
         <SideNav />
       </div>
-      <div className="col-span-9 bg-gray-100">
+      <div className="col-span-9 bg-gray-100 min-h-screen">
         <Outlet />
       </div>
     </div>
