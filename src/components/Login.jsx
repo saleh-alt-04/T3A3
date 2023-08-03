@@ -3,17 +3,18 @@
 import { Button, TextInput } from "flowbite-react"
 import { HiMail, HiKey } from "react-icons/hi"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
-
+  const [loading, setLoading] = useState(false)
+  const Navigate = useNavigate()
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("http://localhost:5000/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,6 +26,9 @@ const Login = () => {
       if (response.status === 200) {
         // You could update app state here with user data and redirect
         console.log("Login successful!")
+        sessionStorage.setItem("email", email)
+        sessionStorage.setItem("token", password)
+        Navigate("/dashboard")
         return
       }
 
@@ -54,7 +58,7 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto p-4  ">
+    <div className="w-full max-w-2xl mx-auto p-4  ">
       <h1 className="font-black text-center text-4xl capitalize mb-4">
         Sign in
       </h1>
