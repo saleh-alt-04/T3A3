@@ -8,6 +8,7 @@ import {
   HiPhone,
   HiChatAlt2,
 } from "react-icons/hi"
+import { createCustomer } from "../libs/customerCrud"
 
 const CreateCustomer = () => {
   const [name, setName] = useState("")
@@ -21,25 +22,33 @@ const CreateCustomer = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch("http://localhost:5000/customers", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, address, phone, description }),
+      const response = createCustomer({
+        name,
+        email,
+        address,
+        phone,
+        description,
       })
 
       if (!response.ok) {
-        throw new Error("Failed to create customer")
+        throw new Error(`HTTP error! status: ${response.status}`)
       }
-
-      // Reset form after successful creation
-      setName("")
-      setEmail("")
-      setAddress("")
-      setPhone("")
-      setDescription("")
-      setError("") // Clear any previous errors
+      if (response.status === 201) {
+        console.log("Customer created successfully")
+        // Reset form after successful creation
+        setName("")
+        setEmail("")
+        setAddress("")
+        setPhone("")
+        setDescription("")
+        setError("") // Clear any previous errors
+      }
+      if (response.status === 400) {
+        throw new Error("Bad request, please check your input")
+      }
+      if (response.status >= 500) {
+        throw new Error("Internal server error, please try again later")
+      }
     } catch (err) {
       setError(err.message)
     }
