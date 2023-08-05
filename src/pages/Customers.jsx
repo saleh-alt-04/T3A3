@@ -17,7 +17,6 @@ const Customers = () => {
   useEffect(() => {
     const res = async () => {
       const data = await getCustomers()
-      console.log(data)
       setCustomers(data)
     }
 

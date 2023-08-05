@@ -1,9 +1,24 @@
 /* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { BiSolidUserAccount } from "react-icons/bi"
 import { GrTransaction } from "react-icons/gr"
 import { FcTodoList } from "react-icons/fc"
+import { useAuthStore } from "../store/AuthStore"
+import { BiLogOutCircle } from "react-icons/bi"
 const SideNav = () => {
+  const [user, setUser, logout] = useAuthStore((state) => [
+    state.user,
+    state.setUser,
+    state.logout,
+  ])
+  const navigate = useNavigate()
+
+  const signOut = () => {
+    setUser(null)
+    sessionStorage.removeItem("token")
+    navigate("/login")
+  }
+
   // styles for all links
   const linkStyle =
     "font-semibold flex gap-2 items-center text-black p-2 md:py-3 hover:text-slate-500 cursor-pointer md:p-3 text-sm  rounded-md"
@@ -37,6 +52,11 @@ const SideNav = () => {
 
         <span className="hidden md:block">Todos</span>
       </Link>
+      <div onClick={signOut} className={linkStyle + "cursor-pointer"}>
+        <BiLogOutCircle className=" w-8 h-8  p-2 rounded-lg" />
+
+        <span className=" hidden md:block hover:text-primary">SIGN OUT</span>
+      </div>
     </nav>
   )
 }

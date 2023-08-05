@@ -23,11 +23,11 @@ export default function NavTop() {
       <Navbar.Toggle />
       <Navbar.Collapse>
         {user ? (
-          <>
+          <div className="flex flex-col text-primary font-bold md:hidden gap-2">
             <Navbar.Link href="/dashboard">Dashboard</Navbar.Link>
             <Navbar.Link href="/customers">Customers</Navbar.Link>
             <Navbar.Link href="/Transactions">Transactions</Navbar.Link>
-          </>
+          </div>
         ) : (
           <Navbar.Link href="/login">
             <span className="px-4 py-2 lg:bg-primary lg:text-gray-200 rounded-lg">

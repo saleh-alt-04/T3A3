@@ -1,5 +1,8 @@
 import { Dropdown } from "flowbite-react"
 import React from "react"
+import CustomerOV from "../components/CustomerOV"
+import { Link } from "react-router-dom"
+import TransactionsOv from "../components/TransactionsOv"
 
 const Home = () => {
   return (
@@ -8,7 +11,9 @@ const Home = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="p-4 rounded-md shadow-md bg-primary">
           <h2 className="font-bold text-2xl mb-2">Transactions</h2>
-          <p>Summary of your latest transactions will appear here...</p>
+          <div>
+            <TransactionsOv />
+          </div>
         </div>
         <div className="p-4 rounded-md shadow-md bg-primary">
           <h2 className="font-bold text-2xl mb-2">Todos</h2>
@@ -16,7 +21,16 @@ const Home = () => {
         </div>
         <div className="p-4 rounded-md shadow-md bg-primary">
           <h2 className="font-bold text-2xl mb-2">Customers</h2>
-          <p>Summary of your customers data will appear here...</p>
+          <div className="overflow-auto max-h-screen ">
+            <CustomerOV />
+          </div>
+          <div className="my-4">
+            <Link
+              to="/transactions"
+              className="bg-gray-900 rounded-lg font-bold  px-4 py-2 my-4 text-primary">
+              View all Customers
+            </Link>
+          </div>
         </div>
         <div className="p-4 rounded-md shadow-md bg-primary">
           <h2 className="font-bold text-2xl mb-2">Reports</h2>
