@@ -7,6 +7,8 @@ import Dashboard from "./pages/Dashboard"
 import PrivateRoutes from "./Layout/PrivateRoutes"
 import Customers from "./pages/Customers"
 import Transactions from "./pages/Transactions"
+import Todos from "./pages/Todos"
+import Home from "./pages/Home"
 
 function App() {
   return (
@@ -17,9 +19,10 @@ function App() {
             <Route path="/login" element={<Landing />} />
             <Route path="/" element={<PrivateRoutes />}>
               <Route path="/" element={<Dashboard />}>
-                <Route path="dashboard" element={<h1>Dashboard</h1>} />
+                <Route path="dashboard" element={<Home />} />
                 <Route path="customers" element={<Customers />} />
                 <Route path="transactions" element={<Transactions />} />
+                <Route path="todos" element={<Todos />} />
               </Route>
             </Route>
             <Route path="*" element={<h1>Not Found</h1>} />

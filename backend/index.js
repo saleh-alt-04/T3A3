@@ -4,6 +4,8 @@ const mongoose = require("mongoose")
 const userRouter = require("./routes/userRoutes")
 const customerRouter = require("./routes/customerRoutes")
 const transactionRouter = require("./routes/transactionRoutes")
+const todoRoutes = require("./routes/todoRoutes")
+
 const cors = require("cors")
 
 const app = express()
@@ -22,6 +24,7 @@ app.use(express.json())
 app.use("/users", userRouter)
 app.use("/customers", customerRouter)
 app.use("/transactions", transactionRouter)
+app.use("/todos", todoRoutes)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)

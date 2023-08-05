@@ -1,37 +1,41 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react"
 import { TextInput, Button, Select } from "flowbite-react"
-import { HiUserCircle, HiDollarSign, HiCalendar } from "react-icons/hi"
-import { createTransaction } from "../libs/transactionCrud"
+import {
+  HiUserCircle,
+  HiMail,
+  HiLocationMarker,
+  HiPhone,
+  HiChatAlt2,
+} from "react-icons/hi"
+import { createTransactions } from "../libs/transactionsCrud"
 
 const CreateTransaction = () => {
-  const [customer, setCustomer] = useState("")
-  const [type, setType] = useState("")
   const [amount, setAmount] = useState("")
   const [date, setDate] = useState("")
+  const [description, setDescription] = useState("")
+  const [type, setType] = useState("")
   const [error, setError] = useState("")
 
   const handleCreateTransaction = async (e) => {
     e.preventDefault()
 
     try {
-      const response = createTransaction({
-        customer,
-        type,
+      const response = await createTransactions({
         amount,
         date,
+        description,
+        type,
       })
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
       if (response.status === 201) {
-        console.log("Transaction created successfully")
         // Reset form after successful creation
-        setCustomer("")
-        setType("")
         setAmount("")
         setDate("")
+        setDescription("")
         setError("") // Clear any previous errors
       }
       if (response.status === 400) {
@@ -53,40 +57,13 @@ const CreateTransaction = () => {
       <form className="grid gap-2" onSubmit={handleCreateTransaction}>
         <div className="mb-4">
           <label className="block text-gray-700 text-xs font-semibold mb-2">
-            Customer
-          </label>
-          <TextInput
-            type="text"
-            name="customer"
-            id="customer"
-            rightIcon={HiUserCircle}
-            value={customer}
-            onChange={(e) => setCustomer(e.target.value)}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-xs font-semibold mb-2">
-            Type
-          </label>
-          <Select
-            id="type"
-            name="type"
-            value={type}
-            onChange={(e) => setType(e.target.value)}>
-            <option value="">Select Type</option>
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
-          </Select>
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-xs font-semibold mb-2">
             Amount
           </label>
           <TextInput
             type="number"
             name="amount"
             id="amount"
-            rightIcon={HiDollarSign}
+            rightIcon={HiMail}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
@@ -99,10 +76,32 @@ const CreateTransaction = () => {
             type="date"
             name="date"
             id="date"
-            rightIcon={HiCalendar}
+            rightIcon={HiLocationMarker}
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-xs font-semibold mb-2">
+            Description
+          </label>
+          <TextInput
+            type="text"
+            name="description"
+            id="description"
+            rightIcon={HiChatAlt2}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-xs font-semibold mb-2">
+            Type
+          </label>
+          <Select value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </Select>
         </div>
         <Button type="submit" className="w-full bg-primary ">
           Add Transaction

@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom"
 import { BiSolidUserAccount } from "react-icons/bi"
 import { GrTransaction } from "react-icons/gr"
+import { FcTodoList } from "react-icons/fc"
 const SideNav = () => {
   // styles for all links
   const linkStyle =
@@ -30,6 +31,11 @@ const SideNav = () => {
         <GrTransaction className="w-8 h-8 bg-[#FD9E9E] p-2 rounded-lg" />
 
         <span className="hidden md:block">Transactions</span>
+      </Link>
+      <Link to="/todos" className={linkStyle}>
+        <FcTodoList className="w-8 h-8 bg-[#FD9E9E] p-2 rounded-lg" />
+
+        <span className="hidden md:block">Todos</span>
       </Link>
     </nav>
   )

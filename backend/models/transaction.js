@@ -1,12 +1,8 @@
 /* eslint-disable no-undef */
+/* eslint-disable no-undef */
 const mongoose = require("mongoose")
 
 const transactionSchema = new mongoose.Schema({
-  customer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Customer",
-    required: true,
-  },
   type: {
     type: String,
     enum: ["income", "expense"],
