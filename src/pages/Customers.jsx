@@ -25,11 +25,14 @@ const Customers = () => {
 
   const handleDelete = async (id) => {
     const res = await deleteCustomer(id)
+    setCustomers(customers.filter((customer) => customer._id !== id))
     console.log(res)
   }
 
   const handleEdit = (customer) => {
     setCurrentCustomer(customer)
+    setCustomers(customers.filter((c) => c._id !== customer._id))
+
     setOpenUpdateModal(true)
   }
 

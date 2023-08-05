@@ -8,6 +8,10 @@ const transactionSchema = new mongoose.Schema({
     enum: ["income", "expense"],
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
   amount: {
     type: Number,
     required: true,

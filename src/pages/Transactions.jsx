@@ -52,7 +52,7 @@ const Transactions = () => {
         <div className="overflow-x-auto">
           <Table hoverable>
             <Table.Head>
-              <Table.HeadCell>Type</Table.HeadCell>
+              <Table.HeadCell>Description</Table.HeadCell>
               <Table.HeadCell>Amount</Table.HeadCell>
               <Table.HeadCell>Date</Table.HeadCell>
               <Table.HeadCell>Type</Table.HeadCell>
@@ -62,12 +62,21 @@ const Transactions = () => {
             <Table.Body className="divide-y">
               {transactions.map((transaction) => (
                 <Table.Row key={transaction._id}>
-                  <Table.Cell>{transaction.type}</Table.Cell>
+                  <Table.Cell>{transaction.description}</Table.Cell>
                   <Table.Cell>{transaction.amount}</Table.Cell>
                   <Table.Cell>
                     {new Date(transaction.date).toLocaleDateString()}
                   </Table.Cell>
-                  <Table.Cell>{transaction.type}</Table.Cell>
+                  <Table.Cell>
+                    <span
+                      className={`font-bold px-3 py-1 text-white rounded  ${
+                        transaction.type === "expense"
+                          ? "bg-red-500"
+                          : "bg-green-500"
+                      }`}>
+                      {transaction.type}
+                    </span>
+                  </Table.Cell>
                   <Table.Cell>
                     <button onClick={() => deleteTransactions(transaction._id)}>
                       <MdDelete className="text-red-500 text-xl" />

@@ -9,20 +9,22 @@ const TransactionsOv = () => {
   useEffect(() => {
     const res = async () => {
       const data = await getTransactions()
-      console.log(data)
       setTransactions(data)
     }
 
     res()
   }, [])
-  console.log(transactions)
   return (
     <div>
       {transactions &&
         transactions.map((transaction: any) => {
           return (
             <div
-              className="flex p-4 bg-white drop-shadow-md text-primary font-bold gap-2 justify-around  rounded-md"
+              className={`mb-2 flex p-4 bg-white drop-shadow-md border-l-8 ${
+                transaction.type === "expense"
+                  ? "border-red-500"
+                  : "border-green-500"
+              } text-primary font-bold gap-2 justify-around  rounded-md`}
               key={transaction._id}>
               <p>${transaction.amount}</p>
               <p className="flex items-center gap-1">

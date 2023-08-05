@@ -3,6 +3,7 @@ import React from "react"
 import CustomerOV from "../components/CustomerOV"
 import { Link } from "react-router-dom"
 import TransactionsOv from "../components/TransactionsOv"
+import ManageTodos from "../components/ManageTodos"
 
 const Home = () => {
   return (
@@ -14,27 +15,30 @@ const Home = () => {
           <div>
             <TransactionsOv />
           </div>
-        </div>
-        <div className="p-4 rounded-md shadow-md bg-primary">
-          <h2 className="font-bold text-2xl mb-2">Todos</h2>
-          <p>Summary of your todos will appear here...</p>
-        </div>
-        <div className="p-4 rounded-md shadow-md bg-primary">
-          <h2 className="font-bold text-2xl mb-2">Customers</h2>
-          <div className="overflow-auto max-h-screen ">
-            <CustomerOV />
-          </div>
-          <div className="my-4">
+          <div className="my-4  ">
             <Link
               to="/transactions"
               className="bg-gray-900 rounded-lg font-bold  px-4 py-2 my-4 text-primary">
-              View all Customers
+              View all Transactions
             </Link>
           </div>
         </div>
         <div className="p-4 rounded-md shadow-md bg-primary">
-          <h2 className="font-bold text-2xl mb-2">Reports</h2>
-          <p>Your generated reports will appear here...</p>
+          <h2 className="font-bold text-2xl mb-2">Todos</h2>
+          <ManageTodos />
+        </div>
+        <div className=" rounded-md shadow-md bg-primary col-span-2 p-10">
+          <h2 className="font-bold text-2xl mb-2">Customers</h2>
+          <div className="overflow-auto max-h-screen ">
+            <CustomerOV />
+          </div>
+          <div className="my-4  ">
+            <Link
+              to="/customers"
+              className="bg-gray-900 rounded-lg font-bold  px-4 py-2 my-4 text-primary">
+              View all Customers
+            </Link>
+          </div>
         </div>
       </div>
 
