@@ -5,11 +5,13 @@ const router = express.Router()
 
 // Create new customer
 router.post("/", async (req, res) => {
+  console.log(req.body)
   try {
     const customer = new Customer(req.body)
     await customer.save()
     res.status(201).send(customer)
   } catch (error) {
+    console.log(error) // Log the error to the console
     res.status(400).send(error)
   }
 })

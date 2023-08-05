@@ -4,6 +4,7 @@ import { Button, TextInput } from "flowbite-react"
 import { HiMail, HiKey } from "react-icons/hi"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { useAuthStore } from "../store/AuthStore"
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -11,6 +12,7 @@ const Login = () => {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const Navigate = useNavigate()
+  const [user, setUser] = useAuthStore((state) => [state.user, state.setUser])
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
@@ -28,6 +30,8 @@ const Login = () => {
         console.log("Login successful!")
         sessionStorage.setItem("email", email)
         sessionStorage.setItem("token", password)
+        setUser({ email, token: password })
+
         Navigate("/dashboard")
         return
       }

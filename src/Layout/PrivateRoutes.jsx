@@ -5,6 +5,7 @@ function PrivateRoutes() {
   useEffect(() => {}, [])
 
   const loggedIn = sessionStorage.getItem("token")
+
   return loggedIn ? <Outlet /> : <Navigate to={"/login"} />
 }
 

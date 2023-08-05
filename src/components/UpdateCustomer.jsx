@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { TextInput, Button } from "flowbite-react"
 import {
   HiUserCircle,
@@ -8,21 +9,29 @@ import {
   HiPhone,
   HiChatAlt2,
 } from "react-icons/hi"
-import { createCustomer } from "../libs/customerCrud"
+import { updateCustomer } from "../libs/customerCrud"
 
-const CreateCustomer = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [address, setAddress] = useState("")
-  const [phone, setPhone] = useState("")
-  const [description, setDescription] = useState("")
+const UpdateCustomer = ({ customer }) => {
+  const [name, setName] = useState(customer.name)
+  const [email, setEmail] = useState(customer.email)
+  const [address, setAddress] = useState(customer.address)
+  const [phone, setPhone] = useState(customer.phone)
+  const [description, setDescription] = useState(customer.description)
   const [error, setError] = useState("")
 
-  const handleCreateCustomer = async (e) => {
+  useEffect(() => {
+    setName(customer.name)
+    setEmail(customer.email)
+    setAddress(customer.address)
+    setPhone(customer.phone)
+    setDescription(customer.description)
+  }, [customer])
+  console.log(customer)
+  const handleUpdateCustomer = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await createCustomer({
+      const response = await updateCustomer(customer._id, {
         name,
         email,
         address,
@@ -33,13 +42,7 @@ const CreateCustomer = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
-      if (response.status === 201) {
-        // Reset form after successful creation
-        setName("")
-        setEmail("")
-        setAddress("")
-        setPhone("")
-        setDescription("")
+      if (response.status === 200) {
         setError("") // Clear any previous errors
       }
       if (response.status === 400) {
@@ -56,9 +59,9 @@ const CreateCustomer = () => {
   return (
     <div className="w-full max-w-lg mx-auto p-4">
       <h1 className="font-black text-center text-4xl capitalize mb-4">
-        Add Customer
+        Update Customer
       </h1>
-      <form className="grid gap-2" onSubmit={handleCreateCustomer}>
+      <form className="grid gap-2" onSubmit={handleUpdateCustomer}>
         <div className="mb-4">
           <label className="block text-gray-700 text-xs font-semibold mb-2">
             Name
@@ -125,7 +128,7 @@ const CreateCustomer = () => {
           />
         </div>
         <Button type="submit" className="w-full bg-primary ">
-          Add Customer
+          Update Customer
         </Button>
       </form>
       <p className="text-red-500 text-xs mt-4">{error}</p>
@@ -133,4 +136,4 @@ const CreateCustomer = () => {
   )
 }
 
-export default CreateCustomer
+export default UpdateCustomer

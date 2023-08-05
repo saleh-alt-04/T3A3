@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react"
 import Login from "../components/Login"
-import CreateCustomer from "../components/CreateCustomer"
-import DisplayCustomers from "../components/DisplayCustomers"
 
 const Landing = () => {
   return (
