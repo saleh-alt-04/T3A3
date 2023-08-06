@@ -25,7 +25,7 @@ const Home = () => {
           <h2 className="font-bold text-2xl mb-2">Todos</h2>
           <ManageTodos />
         </div>
-        <div className=" rounded-md shadow-md bg-gray-900 col-span-2 p-10">
+        <div className=" rounded-md shadow-md bg-gray-900 md:col-span-2 p-10">
           <h2 className="font-bold text-2xl mb-2">Customers</h2>
           <div className="overflow-auto max-h-screen ">
             <CustomerOV />
