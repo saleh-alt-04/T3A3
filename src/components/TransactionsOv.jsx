@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getTransactions } from "../libs/transactionsCrud"
 import { AiFillCalendar } from "react-icons/ai"
 import { TbCategory } from "react-icons/tb"
 
 const TransactionsOv = () => {
-  const [transactions, setTransactions] = React.useState([])
+  const [transactions, setTransactions] = useState([])
 
   useEffect(() => {
     const res = async () => {
@@ -14,21 +14,31 @@ const TransactionsOv = () => {
 
     res()
   }, [])
+
+  const formatDate = (rawDate) => {
+    const date = new Date(rawDate)
+    return date.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })
+  }
+
   return (
     <div>
       {transactions &&
-        transactions.map((transaction: any) => {
+        transactions.map((transaction) => {
           return (
             <div
-              className={`mb-2 flex p-4 bg-white drop-shadow-md border-l-8 ${
+              className={`mb-2 flex p-4 flex-wrap bg-white drop-shadow-md border-l-8 ${
                 transaction.type === "expense"
                   ? "border-red-500"
                   : "border-green-500"
-              } text-primary font-bold gap-2 justify-around  rounded-md`}
+              } text-black font-bold gap-2 justify-around  rounded-md`}
               key={transaction._id}>
-              <p>${transaction.amount}</p>
+              <p className="text-blue-500">${transaction.amount}</p>
               <p className="flex items-center gap-1">
-                <AiFillCalendar className="" /> {transaction.date}
+                <AiFillCalendar className="" /> {formatDate(transaction.date)}
               </p>
               <p>{transaction.description}</p>
               <p className="flex items-center gap-1">

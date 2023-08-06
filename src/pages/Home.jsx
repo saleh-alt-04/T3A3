@@ -1,5 +1,3 @@
-import { Dropdown } from "flowbite-react"
-import React from "react"
 import CustomerOV from "../components/CustomerOV"
 import { Link } from "react-router-dom"
 import TransactionsOv from "../components/TransactionsOv"
@@ -10,7 +8,7 @@ const Home = () => {
     <div className="p-4 bg-gray-700 text-white relative">
       <h1 className="font-bold text-4xl mb-4">Welcome to your Dashboard</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-4 rounded-md shadow-md bg-primary">
+        <div className="p-4 rounded-md shadow-md bg-gray-900">
           <h2 className="font-bold text-2xl mb-2">Transactions</h2>
           <div>
             <TransactionsOv />
@@ -23,11 +21,11 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="p-4 rounded-md shadow-md bg-primary">
+        <div className="p-4 rounded-md shadow-md bg-gray-900">
           <h2 className="font-bold text-2xl mb-2">Todos</h2>
           <ManageTodos />
         </div>
-        <div className=" rounded-md shadow-md bg-primary col-span-2 p-10">
+        <div className=" rounded-md shadow-md bg-gray-900 col-span-2 p-10">
           <h2 className="font-bold text-2xl mb-2">Customers</h2>
           <div className="overflow-auto max-h-screen ">
             <CustomerOV />
@@ -41,15 +39,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="z-50 fixed  md:bottom-10 right-3 w-fit bg-black">
-        <Dropdown
-          label="Quick Access"
-          placement="left"
-          className="bg-primary rounded-lg">
-          <Dropdown.Item>Item 1</Dropdown.Item>
-        </Dropdown>
-      </div> */}
     </div>
   )
 }

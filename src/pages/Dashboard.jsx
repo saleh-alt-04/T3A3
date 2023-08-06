@@ -18,10 +18,10 @@ const Dashboard = () => {
 
   return (
     <div className="grid grid-cols-10 bg-gray-200 ">
-      <div className="col-span-1  md:flex flex-col  ">
+      <div className="col-span-2  md:flex flex-col  ">
         <SideNav />
       </div>
-      <div className="col-span-9 bg-gray-100 min-h-screen">
+      <div className="col-span-8 bg-gray-100 min-h-screen">
         <Outlet />
       </div>
     </div>

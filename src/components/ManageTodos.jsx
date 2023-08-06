@@ -14,14 +14,23 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 const ManageTodos = () => {
   const [todos, setTodos] = useState([])
   const [todo, setTodo] = useState({})
+
   useEffect(() => {
     const res = async () => {
       const data = await getTodos()
-
       setTodos(data)
     }
     res()
   }, [])
+
+  const formatDate = (rawDate) => {
+    const date = new Date(rawDate)
+    return date.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })
+  }
 
   const handleTodoSubmit = async (e) => {
     e.preventDefault()
@@ -35,6 +44,7 @@ const ManageTodos = () => {
       })
       .catch((err) => console.log(err))
   }
+
   const handleTodoState = async (id, state) => {
     await updateTodos(id, { isComplete: state })
     setTodos(
@@ -43,22 +53,24 @@ const ManageTodos = () => {
       )
     )
   }
+
   const handleTodoDelete = async (id) => {
     await deleteTodos(id)
     setTodos(todos.filter((todo) => todo._id !== id))
   }
+
   return (
     <div className=" rounded-xl p-4 max-w-3xl">
       {todos &&
         todos.map((todo) => (
           <div
             key={todo._id}
-            className={`bg-gray-900 my-4 w-full text-white font-bold justify-evenly gap-8 border-2 border-l-8 drop-shadow-lg p-6 rounded flex items-center  ${
+            className={`bg-gray-900 my-4 w-full text-white flex-wrap font-bold  md:justify-evenly gap-8 border-2 border-l-8 drop-shadow-lg p-6 rounded flex items-center  ${
               todo.isComplete ? "border-blue-400" : "border-yellow-400"
             }`}>
             <p>{todo.task}</p>
             <p>{todo.isComplete}</p>
-            <p>{todo.dateAdded}</p>
+            <p>{formatDate(todo.dateAdded)}</p>
             <div className="flex ">
               <Button
                 onClick={() => handleTodoState(todo._id, !todo.isComplete)}

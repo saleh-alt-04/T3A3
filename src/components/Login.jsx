@@ -66,6 +66,8 @@ const Login = () => {
       <h1 className="font-black text-center text-4xl capitalize mb-4">
         Sign in
       </h1>
+      <p className="font-semibold">login email:example@example.com </p>
+      <p className="font-semibold">password:examplePassowrd</p>
       <p className="text-center text-gray-500 mb-8">
         Sign in to your account to continue
       </p>
