@@ -8,11 +8,13 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-**link to url of deployed website**
+**link to url of deployed website**  https://t3-a2-atnosreaw-saleh-alt-04.vercel.app/login
 
 
 **A link to GitHub repository**    https://github.com/saleh-alt-04/T3A3
 
+**login is example@example.com and password is examplePassowrd**
+ 
 # T3A2-A
 
 **Q1)**
@@ -51,7 +53,6 @@ MSA MOWING Lawn Mowing Web App: This is the major component of your web app, and
 This component records the user's interaction with the web app. It involves tasks like selecting services, providing location information, and entering preferences.
 The user's input is analyzed and turned into a service request. This component collects all of the information required to schedule a lawn mowing service.
 
-Appointment Management: The service request is subsequently routed to the Appointment Management component, which is in charge of appointment scheduling, storage, and tracking. It guarantees that staff assignments, time slots, and appointment confirmations are managed efficiently.
 
 expenses: This component is in charge of tracking and controlling mowing-related expenses. It records and categorizes spending, giving you useful financial management insights.
 
@@ -59,7 +60,6 @@ Income: The Income component is in charge of tracking the income and revenue ear
 
 Todo List: This component allows you to create and manage tasks or to-do lists. It enables you to organize your workflow, prioritize activities, and monitor their fulfillment.
 
-Coming soon: Coming Up highlights impending chores, appointments, and deadlines. It gives you an overview of your scheduled activities, ensuring that you stay on track.
 
 **Q3)**
 
