@@ -17,7 +17,7 @@ export default function NavTop() {
       <Navbar.Brand href="/">
         <span className=" px-4 py-1 drop-shadow-lg rounded text-white bg-primary   self-center whitespace-nowrap text-xl font-black">
           <FaUsersCog className="inline-block mr-2 text-3xl " />
-          Customer Manager Portal
+          MSA MOWING
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
