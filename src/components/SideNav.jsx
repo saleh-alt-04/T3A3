@@ -25,7 +25,7 @@ const SideNav = () => {
 
   // styles for active and non-active links
   return (
-    <nav className=" flex flex-col  md:p-1 md:py-2 md:pr-4 md:pl-1 gap-2 my-2  ">
+    <nav className=" flex flex-col  md:p-1 md:py-2 md:pr-4 md:pl-1 gap-2 my-2">
       <Link to="/dashboard" className={linkStyle}>
         <svg
           className=" w-8 rounded-lg h-8 bg-[#FD9E9E] p-2 "

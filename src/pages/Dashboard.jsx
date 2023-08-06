@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react"
 import { getCustomers } from "../libs/customerCrud"
 import SideNav from "../components/SideNav"
