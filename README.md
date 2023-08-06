@@ -87,10 +87,13 @@ As an administrator, I want to generate reports on income, expenses, and profita
 
 I have created wireframes for multiple standard screen sizes using industry-standard software. These wireframes serve as the foundation for the visual design of my dashboard interface. With careful consideration of various screen sizes, I aim to ensure a responsive and seamless user experience across devices. These wireframes provide me with a clear roadmap for implementing my design vision and bringing the dashboard to life.
 
-![Screenshot 2023-07-07 183702](https://github.com/saleh-alt-04/T3A2-A/assets/117635352/1ca99ae0-80a4-46ed-a771-0ad198a7af17)
-![Screenshot 2023-07-07 183748](https://github.com/saleh-alt-04/T3A2-A/assets/117635352/a8605a14-e859-44c8-a167-1b202d922de9)
-![Screenshot 2023-07-07 183203](https://github.com/saleh-alt-04/T3A2-A/assets/117635352/7c8a99e2-a137-451f-9b82-b1e8fcd4435b)
-![Screenshot 2023-07-07 184201](https://github.com/saleh-alt-04/T3A2-A/assets/117635352/d49256e7-250c-4249-820f-1ae6797054ab)
+![Screenshot 2023-08-06 233106](https://github.com/saleh-alt-04/T3A3/assets/117635352/b467d683-fab4-4a8f-9974-7e6e48296263)
+![Screenshot 2023-08-06 232410](https://github.com/saleh-alt-04/T3A3/assets/117635352/6915678a-abc3-43ac-9df9-023ba3515d67)
+![Screenshot 2023-08-06 232911](https://github.com/saleh-alt-04/T3A3/assets/117635352/4159b58a-eab5-4537-a7cc-37d3b940cbe6)
+![Screenshot 2023-08-06 232944](https://github.com/saleh-alt-04/T3A3/assets/117635352/43e7b3dc-e66c-4d8e-be9f-fd02758d927a)
+![Screenshot 2023-08-06 233004](https://github.com/saleh-alt-04/T3A3/assets/117635352/0cc74681-d8e0-4ee4-aff4-05376e56c8ee)
+![Screenshot 2023-08-06 233032](https://github.com/saleh-alt-04/T3A3/assets/117635352/531ed282-8e69-4147-bc7e-d1b8cfdad4ca)
+
 
 
 **Q6)**
